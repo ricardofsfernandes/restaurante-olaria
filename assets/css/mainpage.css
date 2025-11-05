@@ -13,13 +13,33 @@ h1, h2, h3, h4, h5, h6 {
 
 header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     padding: 10px 20px;
     background-color: #fff;
 }
 
-    .nav-bar ul {
+.location {
+    width: 100%;
+    border-bottom: 2px solid #dddddd8c;
+    /*padding-bottom: 1px;*/
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #666;
+    display: flex;
+    justify-content: center;
+}
+
+.location a {
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.menu ul {
     display: flex;
     gap: 15px;
     list-style-type: none;
@@ -27,14 +47,14 @@ header {
     padding: 0;
 }
 
-    .nav-bar a {
+    .menu a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
     font-size: 12px;
 }   
 
-    .nav-bar a:hover {
+    .menu a:hover {
     color: #562b00;
     text-decoration: underline;
     text-decoration-color: #562b00;
@@ -49,20 +69,40 @@ header {
         height: auto;
     }
 
-.account {
-    display: flex;
-    gap: 10px;
-    align-items: center;
+main {
+  padding: 20px;
+  color: white;
+  font-family: Arial, sans-serif;
 }
 
-.account a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    font-size: 12px;
+/* Secção da imagem (hero) */
+.hero {
+  border: 1px solid #999;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
 }
 
-    .account svg {
-    width: 20px;
-    height: 20px;
+.hero img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Grelha 2x2 */
+.conteudo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 250px);
+  gap: 10px;
+}
+
+.card {
+  border: 1px solid #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  background-color: #111;
 }
