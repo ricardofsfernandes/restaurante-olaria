@@ -9,32 +9,31 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    margin: 0 0 15px 0;
-    font-weight: normal;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 header {
     display: flex;
-    flex-direction: column; /* header tem duas partes: location + navbar */
+    flex-direction: column; /* header pai de location + navbar */
     align-items: center;
     background-color: #fff;
     position: fixed;
-    top: 0; /* garante fixo no topo */
+    top: 0; /* fixa em cima */
     left: 0;
     width: 100%;
-    z-index: 1030; /* <-- removido px que tinhas por engano */
+    z-index: 1030;
     opacity: 0.95;
     border-bottom: 1px solid #ddd;
 }
 
 .location {
-  display: flex;                     /* alinha ícone e texto lado a lado */
-  align-items: center;               /* centraliza verticalmente ambos */
-  justify-content: center;           /* centra horizontalmente no header */
-  gap: 6px;                          /* espaço natural entre ícone e texto */
+  display: flex;                     
+  align-items: center;               /* vertical */
+  justify-content: center;           /* horizontalmente */
+  gap: 6px;                          /* icon e texto */
   width: 100%;
   border-bottom: 1px solid #dddddd8c;
   padding: 5px 0;
@@ -48,23 +47,23 @@ header {
   color: #333;
   font-weight: bold;
   font-size: 12px;
-  display: flex;                     /* garante alinhamento interno, útil se adicionares mais ícones */
-  align-items: center;               /* centraliza verticalmente o texto com o ícone */
-  gap: 4px;                          /* pequeno espaço entre ícone e texto */
+  display: flex;                     
+  align-items: center;               
+  gap: 4px;                     
 }
 
 /* ícone */
 .location img {
-  width: 16px;                       /* reduzido para equilibrar com o texto */
+  width: 16px;
   height: 16px;
-  display: block;                    /* evita desalinhamento inline */
+  display: block; /* evita desalinhar na própria inline */
 }
 
 
 .navbar {
     width: 100%;
     display: flex;
-    justify-content: center; /* logo à esquerda, menu à direita */
+    justify-content: center;
     gap: 50px;
     align-items: center;
     padding: 10px 40px;
@@ -159,7 +158,7 @@ main {
   align-items: center;
   padding: 40px;
   color: #333;
-  background: #fff;
+  /*background: #fff;*/
   box-sizing: border-box;
 }
 
@@ -215,13 +214,13 @@ main {
   
   align-items: flex-start;
   padding: 60px 80px;
-  background-color: #fff;
+  /*background-color: #fff;*/
   gap : 20px;
 }
 
 /* === TÍTULOS === */
 .bloco[class*="text"] h2 {
-  font-size: 26px;
+  font-size: 34px;
   font-weight: 700;
   color: #562b00;
   margin: 0 0 15px 0;
