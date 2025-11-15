@@ -13,6 +13,7 @@
     <!--LINK CSS-->
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/css/mainpage.css">
+    <link rel="stylesheet" href="assets/css/gallerydeserts.css">
     <!--FAVICON-->
     <!--FONTS DE LETRA-->
 </head>
@@ -84,12 +85,45 @@
 
                 <!-- Linha 3 -->
                 <div class="bloco galeria-bloco">
-                <div class="galeria">
-                    <img src="assets/images/2.jpg" alt="">
-                    <img src="assets/images/1.jpg" alt="">
-                    <img src="assets/images/3.jpg" alt="">
-                    <img src="assets/images/4.jpg" alt="">
-                </div>
+                    <!-- Slideshow container - W3Schools -->
+                    
+                    <div class="slideshow-container">
+
+                        <!-- Full-width images with number and caption text -->
+                        <div class="mySlides fade">
+                            <div class="numbertext">1 / 4</div>
+                            <img src="assets/images/1.jpg" style="width:100%">
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="numbertext">2 / 4</div>
+                            <img src="assets/images/2.jpg" style="width:100%">
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="numbertext">3 / 4</div>
+                            <img src="assets/images/3.jpg" style="width:100%">
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="numbertext">4 / 4</div>
+                            <img src="assets/images/4.jpg" style="width:100%">
+                        </div>
+
+                        <!-- Next and previous buttons -->
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+
+                        <!-- The dots/circles -->
+                        <div class="dots-container">
+                            <span class="dot" onclick="currentSlide(1)"></span>
+                            <span class="dot" onclick="currentSlide(2)"></span>
+                            <span class="dot" onclick="currentSlide(3)"></span>
+                            <span class="dot" onclick="currentSlide(4)"></span>
+                        </div>
+
+                    </div>
                 </div>
 
                 <div class="bloco text3">
@@ -119,5 +153,6 @@
 
         </footer>
     </div>
+<script src="assets/js/gallerydeserts.js"></script>
 </body>
 </html>
