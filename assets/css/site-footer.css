@@ -1,0 +1,152 @@
+/* --- FOOTER STYLES --- */
+.site-footer {
+    background-color: #ececec9c; /* Um cinza claro sólido com ligeira transp é melhor que preto transparente */
+    color: #36402a;            /* Cor do texto */
+    padding: 60px 0 0 0;
+    margin-top: 50px;          /* Separação do conteúdo principal */
+    width: 100%;
+}
+
+.footer-content-wrapper {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    /* Cria 4 colunas: A primeira maior (2fr) e as outras iguais (1fr) */
+    grid-template-columns: 1.5fr 1fr 1fr 1fr; 
+    gap: 35px;
+}
+
+/* Títulos das colunas */
+.footer-col h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: #36402a; /* Um dourado/bege fica bem em restaurantes */
+    border-bottom: 1px solid #36402a;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Estilos gerais de texto e links */
+.footer-col p, .footer-col a, .footer-col li {
+    font-size: 12px;
+    line-height: 2;
+    color: #455141;
+    text-decoration: none;
+    list-style: none;
+}
+
+.footer-col ul {
+    padding: 0;
+}
+
+.footer-col a:hover {
+    color: #562b00;
+    text-decoration: underline;
+}
+
+/* Logo e Tagline */
+.footer-logo {
+    max-width: 200px;
+    margin-bottom: 15px;
+    /* Se o logo for preto, podes precisar de um filtro aqui ou usar uma versão branca */
+}
+
+/* Ajuste de alinhamento para a Tagline e Redes Sociais */
+.footer-col.brand-col .tagline, 
+.footer-col.brand-col .social-links {
+    margin-left: 30px; /* <--- Ajusta este número (px) a "olho" */
+    display: block;    /* Garante que o margin funciona bem */
+}
+
+/* Ícones pequenos */
+.icon-mini {
+    width: 16px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* Horários */
+.hours-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 4px;
+}
+
+/* Copyright Area */
+.footer-copyright {
+    margin-top: 20px;
+    /*padding-top: 10px;*/
+    border-top: 1px solid #333;
+    text-align: center;
+    font-size: 10px;
+    color: #455141;
+    display: flex;
+    justify-content: space-between;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.footer-copyright a {
+    color: #b67b07;
+    text-decoration: none;
+}
+
+
+/* =======================================================
+   MEDIA QUERIES - FOOTER
+   Colocar no final de site-footer.css
+   ======================================================= */
+
+/* 1. ECRÃS GIGANTES (+1400px) */
+@media (min-width: 1401px) {
+    .footer-content-wrapper {
+        max-width: 85%; 
+    }
+    .footer-copyright {
+        max-width: 85%;
+    }
+}
+
+/* 2. TABLETS (-950px) 
+   Atenção: Usei 950px para alinhar com a mudança do site principal,
+   mas podes manter 900px se preferires. */
+@media (max-width: 950px) {
+    .footer-content-wrapper {
+        grid-template-columns: 1fr; /* 1 coluna */
+        text-align: center;
+        gap: 30px;
+    }
+}
+
+/* 3. MOBILE (-600px) */
+@media (max-width: 600px) {
+    .footer-content-wrapper {
+        grid-template-columns: 1fr; /* 1 coluna */
+        text-align: center;
+    }
+    
+    .footer-col h3 {
+        border-bottom: none;
+        margin-top: 30px;
+    }
+
+    .footer-copyright {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .footer-col.brand-col .tagline, 
+    .footer-col.brand-col .social-links {
+        margin-left: 0; 
+    }
+}
