@@ -39,7 +39,7 @@ header {
   justify-content: center;           /* horizontalmente */
   gap: 6px;                          /* icon e texto */
   width: 100%;
-  border-bottom: 1px solid #dddddd8c;
+  border-bottom: 1px solid #dddddda2;
   padding: 5px 0;
   font-size: 12px;
   color: #666;
@@ -48,7 +48,7 @@ header {
 /* link */
 .location a {
   text-decoration: none;
-  color: #333;
+  color: #000000;
   font-weight: bold;
   font-size: 12px;
   display: flex;                     
@@ -58,8 +58,8 @@ header {
 
 /* ícone */
 .location img {
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
   display: block; /* evita desalinhar na própria inline */
 }
 
@@ -75,11 +75,11 @@ header {
 
 
 .logo img {
-    width: 50px; /* tamanho do logo, mexe na altura do header tbm */
-  height: auto; /*auto em relação width*/
-  display: block;
-  object-fit: contain;/* evita distorce do logotipo */
-  object-position: center;
+    width: 80px; /* tamanho do logo, mexe na altura do header tbm */
+    height: auto; /*auto em relação width*/
+    display: block;
+    object-fit: contain;/* evita distorce do logotipo */
+    object-position: center;
 }
 .menu ul {
     display: flex;
@@ -91,22 +91,18 @@ header {
 
 .menu a {
     text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    font-size: 1.60rem;
+    color: #36402a;
+    font-weight: 500;
+    font-size: 1.6rem;
 }   
 
 .menu a:hover {
-    color: #562b00;
-    text-decoration: underline;
-    text-decoration-color: #562b00;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 4px;
+    color: #FDCB67;
 
 }
 
 main {
-  padding-top: 140px; /* aqui compensa a altura do header fixo, se mudar a altura do logo, vai influenciar aqui */
+  padding-top: 115px; /* aqui compensa a altura do header fixo, se mudar a altura do logo, vai influenciar aqui */
   min-height: 80vh;
   color: white;
 }
@@ -182,8 +178,7 @@ img:hover {
 }
 
 .bloco p {
-  font-size: 15px;
-  
+  font-size: 1.5rem;
   color: #444;
   margin: 10px 0;
   max-width: 700px;
