@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu com Dropdown</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css"> 
+
+
+    <style>
+        /*
+ Definir fonte de letra e estilos básicos para o corpo da página
+*/
+*{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* --- Estilos do Header e Topo Original --- */
+
+header {
+    display: flex;
+    flex-direction: column; /* header pai de location + navbar */
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.95); /* Só o fundo fica transparente, o texto não */
+    position: fixed;
+    top: 0; /* fixa em cima */
+    left: 0;
+    width: 100%;
+    z-index: 1030;
+    opacity: 0.95;
+    border-bottom: 1px solid #ddd;
+    transition: all 0.3s ease; /* Suaviza mudanças de altura */
+}
+
+.location {
+  display: flex;                  
+  align-items: center;              /* vertical */
+  justify-content: center;          /* horizontalmente */
+  gap: 6px;                         /* icon e texto */
+  width: 100%;
+  border-bottom: 1px solid #dddddda2;
+  padding: 5px 0;
+  font-size: 12px;
+  color: #666;
+}
+
+/* link */
+.location a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  font-size: 12px;
+  display: flex;                  
+  align-items: center;              
+  gap: 4px;                       
+}
+
+/* ícone */
+.location img {
+  width: 15px;
+  height: 15px;
+  display: block; /* evita desalinhar na própria inline */
+}
+
+/* --- Estilos da Navbar Original --- */
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+
+.logo img {
+    width: 80px; /* tamanho do logo, mexe na altura do header tbm */
+    height: auto; /*auto em relação width*/
+    display: block;
+    object-fit: contain;/* evita distorce do logotipo */
+    object-position: center;
+}
+.menu ul {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Estilos para Links (Dropdown e Padrão) --- */
+
+/* Aplica-se aos links principais e aos links dentro do dropdown */
+.menu a {
+    text-decoration: none;
+    color: #36402a;
+    font-weight: 500;
+    font-size: 1.6rem;
+    padding: 10px 0; /* Adicionado padding para melhor área de clique e alinhamento */
+    display: block; /* Garante que os links ocupem a largura total no dropdown */
+    white-space: nowrap; /* Evita quebra de linha nos nomes dos itens */
+}
+
+.menu a:hover {
+    color: #FDCB67;
+}
+
+/* --- Estilos Específicos do Dropdown --- */
+
+.dropdown {
+    position: relative; 
+    display: inline-block; 
+}
+
+/* O botão/link principal do dropdown */
+.dropdown-btn {
+    display: flex; 
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-content {
+    /* CORRIGIDO: Oculta o conteúdo por defeito */
+    display: none; 
+    
+    position: absolute;
+    min-width: fit-content; /* Alterei para 'fit-content' para ajustar ao conteúdo na horizontal */
+    background-color: rgba(255, 255, 255, 0.98); 
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1031; 
+    border-top: 2px solid #FDCB67; 
+    padding: 5px 0;
+    border-radius: 0 0 5px 5px;
+    left: 50%; 
+    transform: translateX(-50%);
+    
+    /* Adiciona o display flex aqui, mas só será ativado no hover */
+    
+    /* Alinhamento dos itens na horizontal */
+    flex-wrap: nowrap; 
+}
+
+.dropdown-content a {
+    color: #36402a; 
+    padding: 8px 12px;
+    text-decoration: none;
+    
+    /* Essencial para manter tudo na mesma linha */
+    white-space: nowrap; 
+    text-align: center; 
+    font-size: 1.4rem; 
+    font-weight: 400;
+}
+
+.dropdown-content a:hover {
+    background-color: #F0F0F0;
+    color: #FDCB67;
+}
+
+/* Regra que mostra o menu: SÓ ativado no hover */
+.dropdown:hover .dropdown-content {
+    /* CORRIGIDO: Ativa o modo horizontal SÓ no hover */
+    display: flex; 
+}
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="location">
+        <a href="https://maps.app.goo.gl/YjCse6bY427mCZnC8">
+            <img src="assets/images/pino-de-localizacao.png" alt="Localização">
+            40°38'16.1"N 8°38'37.6"W
+        </a>
+        <span> | </span>
+        <a href="tel:+351910630909">(+351) 910 630 909</a>
+    </div>
+
+    <div class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="assets/images/1-932df315.png" alt="Logo do Restaurante"></a>
+        </div>
+        
+        <div class="menu">
+            <nav>
+                <ul>
+                    <li><a href="about.html">Sobre</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-btn">Ementas <i class="fa fa-caret-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#">Menu Executivo</a>
+                            <a href="#">Carta</a>
+                            <a href="#">Vinhos</a>
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-btn">Eventos Especiais <i class="fa fa-caret-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#">Jantar 1</a>
+                            <a href="#">Jantar 2</a>
+                            <a href="#">Jantar 3</a>
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-btn">Serviços <i class="fa fa-caret-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#">Catering</a>
+                            <a href="#">Eventos Privados</a>
+                            <a href="#">Eventos Grupos</a>
+                        </div>
+                    </li>
+                    
+                    <li><a href="#">Galeria</a></li>
+                    <li><a href="#">Espaço do Chef</a></li>
+                    <li><a href="#">Reservas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<div style="height: 1000px;"> <h1>Conteúdo da Página</h1>
+</div>
+
+</body>
+</html>
