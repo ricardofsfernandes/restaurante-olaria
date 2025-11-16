@@ -268,3 +268,48 @@ img:hover {
         max-width: 100%;
     }
 }
+
+/* =========================================
+   4. MOBILE - MENU VERTICAL (Abaixo de 700px)
+   ========================================= */
+@media (max-width: 700px) {
+    
+    /* 1. Coloca a Navbar em coluna (Logo em cima, Menu em baixo) */
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    /* 2. Coloca os Links (ul) em coluna vertical */
+    .menu ul {
+        flex-direction: column; /* A magia acontece aqui */
+        align-items: center;    /* Centra os links */
+        gap: 15px;              /* Espaço entre cada link */
+        width: 100%;
+    }
+
+    /* 3. Aumenta a área de clique para o dedo (Melhor UX) */
+    .menu a {
+        display: block;
+        padding: 5px 20px; /* Torna mais fácil acertar com o dedo */
+        font-size: 18px;   /* Letra um pouco maior para mobile */
+    }
+
+    /* ---------------------------------------------------------
+       ⚠️ AJUSTE CRÍTICO DO HEADER FIXO EM MOBILE 
+       Como o menu vertical fica muito alto (ocupa metade do ecrã),
+       é perigoso mantê-lo "fixed" (preso no topo), pois vai tapar o site.
+       
+       Sugestão Pro: Em mobile, soltamos o header para ele rolar com a página.
+    --------------------------------------------------------- */
+    header {
+        position: relative; /* Deixa de ser fixo */
+        border-bottom: none; /* Opcional: remove a linha */
+    }
+
+    /* Como o header já não é fixo, removemos o padding gigante do main */
+    main {
+        padding-top: 20px; /* Apenas um espaçamento pequeno */
+    }
+}
