@@ -113,12 +113,19 @@ header {
     padding: 10px 0; /* Adicionado padding para melhor área de clique e alinhamento */
     display: block; /* Garante que os links ocupem a largura total no dropdown */
     white-space: nowrap; /* Evita quebra de linha nos nomes dos itens */
+    background-color: #ffffff;
 }
+
+
 
 .menu a:hover {
-    color: #FDCB67;
+    color: #000000;
 }
 
+.fa-caret-down {
+    color: #FDCB67; /* Cor do acento (amarelo/laranja) */
+    font-size: 20px;
+}
 /* --- Estilos Específicos do Dropdown --- */
 
 .dropdown {
@@ -139,36 +146,36 @@ header {
     
     position: absolute;
     min-width: fit-content; /* Alterei para 'fit-content' para ajustar ao conteúdo na horizontal */
-    background-color: rgba(255, 255, 255, 0.98); 
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /*background-color: rgba(211, 17, 17, 0.98);*/
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
     z-index: 1031; 
-    border-top: 2px solid #FDCB67; 
+    /*border-top: 2px solid #FDCB67;*/
     padding: 5px 0;
-    border-radius: 0 0 5px 5px;
-    left: 50%; 
-    transform: translateX(-50%);
-    
-    /* Adiciona o display flex aqui, mas só será ativado no hover */
+    border-radius: 0 0 10px 10px;
+    left: 0%; 
+    /*transform: translateX(-50%);*/
     
     /* Alinhamento dos itens na horizontal */
     flex-wrap: nowrap; 
+    gap: 5px;
+
 }
 
 .dropdown-content a {
-    color: #36402a; 
+    color: #161031; 
     padding: 8px 12px;
     text-decoration: none;
     
     /* Essencial para manter tudo na mesma linha */
     white-space: nowrap; 
     text-align: center; 
-    font-size: 1.4rem; 
-    font-weight: 400;
+    font-size: 1rem; 
+    font-weight: 200;
 }
 
 .dropdown-content a:hover {
-    background-color: #F0F0F0;
-    color: #FDCB67;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 /* Regra que mostra o menu: SÓ ativado no hover */
@@ -212,9 +219,9 @@ header {
                     <li class="dropdown">
                         <a href="#" class="dropdown-btn">Eventos Especiais <i class="fa fa-caret-down"></i></a>
                         <div class="dropdown-content">
-                            <a href="#">Jantar 1</a>
-                            <a href="#">Jantar 2</a>
-                            <a href="#">Jantar 3</a>
+                            <a href="#">Jantares Vínicos</a>
+                            <a href="#">Dia do Hambúrguer</a>
+                            <a href="#">Dia da Francesinha</a>
                         </div>
                     </li>
                     
@@ -223,10 +230,11 @@ header {
                         <div class="dropdown-content">
                             <a href="#">Catering</a>
                             <a href="#">Eventos Privados</a>
-                            <a href="#">Eventos Grupos</a>
+                            <a href="#">Menus de Grupo</a>
+                            <a href="#">Take Away</a>
+                            <a href="#">Vouchers</a>
                         </div>
                     </li>
-                    
                     <li><a href="#">Galeria</a></li>
                     <li><a href="#">Espaço do Chef</a></li>
                     <li><a href="#">Reservas</a></li>
@@ -235,9 +243,6 @@ header {
         </div>
     </div>
 </header>
-
-<div style="height: 1000px;"> <h1>Conteúdo da Página</h1>
-</div>
 
 </body>
 </html>

@@ -75,11 +75,19 @@ header {
 
 
 .logo img {
-    width: 80px; /* tamanho do logo, mexe na altura do header tbm */
+    width: 200px; /* tamanho do logo, mexe na altura do header tbm */
     height: auto; /*auto em relação width*/
     display: block;
     object-fit: contain;/* evita distorce do logotipo */
     object-position: center;
+    /* VALOR APROXIMADO para a cor #36402a */
+    filter: 
+        invert(25%) 
+        sepia(20%) 
+        saturate(1000%) 
+        hue-rotate(60deg) 
+        brightness(45%) 
+        contrast(100%);
 }
 .menu ul {
     display: flex;
@@ -89,12 +97,23 @@ header {
     padding: 0;
 }
 
+/* 1. CORREÇÃO DE ALINHAMENTO: Aplica o padding vertical aqui para altura consistente */
+.menu ul li {
+    display: flex; 
+    align-items: center;
+    padding: 10px 0; /* Define a altura/espaçamento vertical igual para todos os itens <li> */
+}
+
 .menu a {
     text-decoration: none;
     color: #36402a;
     font-weight: 500;
     font-size: 1.6rem;
-}   
+    padding: 0 5px; /* Adicionado padding para melhor área de clique e alinhamento */
+    display: block; /* Garante que os links ocupem a largura total no dropdown */
+    white-space: nowrap; /* Evita quebra de linha nos nomes dos itens */
+    
+}
 
 .menu a:hover {
     color: #FDCB67;
@@ -102,10 +121,81 @@ header {
 }
 
 main {
-  padding-top: 115px; /* aqui compensa a altura do header fixo, se mudar a altura do logo, vai influenciar aqui */
+  padding-top: 100px; /* aqui compensa a altura do header fixo, se mudar a altura do logo, vai influenciar aqui */
   min-height: 80vh;
   color: white;
 }
+
+
+
+/*Estilo para dropdown menu*/
+.fa-caret-down {
+    color: #FDCB67; /* Cor do acento (amarelo/laranja) */
+    font-size: 3rem; /* Tamanho do acento */
+    line-height: 1; /* Ajuda no alinhamento vertical */
+    display: inline-block;
+}
+/* --- Estilos Específicos do Dropdown --- */
+
+.dropdown {
+    flex-shrink: 0; /* Evita que o dropdown encolha */
+    
+    position: relative; 
+    display: inline-block; 
+}
+
+/* O botão/link principal do dropdown */
+.dropdown-btn {
+    display: flex; 
+    align-items: center;
+    gap: 5px;
+    padding: 0 5px; /* Mesmo padding horizontal que .menu a */
+}
+
+.dropdown-content {
+    /* CORRIGIDO: Oculta o conteúdo por defeito */
+    display: none; 
+    
+    position: absolute;
+    min-width: fit-content; /* Alterei para 'fit-content' para ajustar ao conteúdo na horizontal */
+    /*background-color: rgba(211, 17, 17, 0.98);*/
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+    z-index: 1031; 
+    /*border-top: 2px solid #FDCB67;*/
+    padding: 5px 0;
+    border-radius: 0 0 10px 10px;
+    left: 0%; 
+    transform: none;
+    top: 100%;
+    /* Alinhamento dos itens na horizontal */
+    flex-wrap: nowrap; 
+    gap: 5px;
+
+}
+
+.dropdown-content a {
+    color: #161031; 
+    padding: 8px 12px;
+    text-decoration: none;
+    
+    /* Essencial para manter tudo na mesma linha */
+    white-space: nowrap; 
+    text-align: center; 
+    font-size: 1rem; 
+    font-weight: 200;
+}
+
+.dropdown-content a:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Regra que mostra o menu: SÓ ativado no hover */
+.dropdown:hover .dropdown-content {
+    /* CORRIGIDO: Ativa o modo horizontal SÓ no hover */
+    display: flex; 
+}
+/*Fim estilo dropdown menu*/
 
 /* Secção da imagem (hero) */
 .hero {
