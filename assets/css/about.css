@@ -1,0 +1,106 @@
+
+        /* === SISTEMA DE VARIÁVEIS (O Cérebro dos Tamanhos) === */
+        :root {
+            /* ECRÃ 2 (O mais pequeno): Aumentei a base aqui */
+            --font-size-h2: 2.4rem;   
+            --font-size-p: 1.25rem;   
+            --line-height-p: 1.6;     
+            --container-max-width: 1200px;
+        }
+
+        /* === ECRÃ 1 (O Grande de 27") === */
+        @media (min-width: 1401px) {
+            :root {
+                --font-size-h2: 3.5rem;   /* Título bem grande */
+                --font-size-p: 1.6rem;    /* Aumentado de 1.4 para 1.6 */
+                --line-height-p: 1.8;     
+                --container-max-width: 85%; 
+            }
+        }
+
+        /* --- ESTILOS GERAIS --- */
+
+        .about-contente {
+            padding: 10px 30px;
+            width: 100%;
+        }
+
+        .title {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+
+        .title h2 {
+            font-size: var(--font-size-h2); 
+            color: #455141;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: font-size 0.3s ease;
+        }
+
+        /* O CONTENTOR FLEX */
+        .about-container {
+            display: flex;
+            gap: 60px;
+            align-items: center; 
+            justify-content: center;
+            max-width: var(--container-max-width); 
+            margin: 0 auto;
+        }
+
+        /* CAIXA DA IMAGEM (Reduzida) */
+        .about-image {
+            /* FLEX 0.8 faz com que ela ocupe menos espaço que o texto (que é 1.2) */
+            flex: 0.8; 
+            min-width: 250px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            display: block;
+        }
+
+        /* CAIXA DO TEXTO (Aumentada) */
+        .about-text {
+            /* FLEX 1.2 faz com que ele ganhe a prioridade de espaço */
+            flex: 1.2;
+            text-align: justify; /* Mantém justificado como pediste */
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: var(--font-size-p);
+            line-height: var(--line-height-p);
+            color: #333;
+            
+            /* REMOVIDO O LIMITE DE LARGURA */
+            width: 100%; 
+        }
+
+        /* --- RESPONSIVIDADE MOBILE (Abaixo de 900px) --- */
+        @media (max-width: 900px) {
+            .about-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .about-image {
+                width: 100%;
+                min-width: auto;
+                flex: auto; /* Reseta o flex para mobile */
+            }
+            
+            .about-text {
+                flex: auto; /* Reseta o flex para mobile */
+            }
+
+            .title h2 {
+                font-size: 1.8rem; 
+            }
+        }
