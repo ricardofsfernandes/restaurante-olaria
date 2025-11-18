@@ -1,3 +1,5 @@
+console.log("Versão: 2025-11-18-0900");
+
 // Espera que todo o documento esteja pronto
         document.addEventListener('DOMContentLoaded', function() {
             
