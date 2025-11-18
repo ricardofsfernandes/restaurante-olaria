@@ -3,7 +3,7 @@
         :root {
             /* ECRÃ 2 (O mais pequeno): Aumentei a base aqui */
             --font-size-h2: 2.4rem;   
-            --font-size-p: 1.25rem;   
+            --font-size-p: 1.5rem;   
             --line-height-p: 1.6;     
             --container-max-width: 1200px;
         }
@@ -12,7 +12,7 @@
         @media (min-width: 1401px) {
             :root {
                 --font-size-h2: 3.5rem;   /* Título bem grande */
-                --font-size-p: 1.6rem;    /* Aumentado de 1.4 para 1.6 */
+                --font-size-p: 1.8rem;    /* Aumentado de 1.4 para 1.6 */
                 --line-height-p: 1.8;     
                 --container-max-width: 85%; 
             }
@@ -104,3 +104,5 @@
                 font-size: 1.8rem; 
             }
         }
+
+        
