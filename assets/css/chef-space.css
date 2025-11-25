@@ -1,16 +1,17 @@
-.chef-space-container {
+    
+    .chef-space-container {
             padding: 50px 30px;
             width: 100%;
         }
 
-        .chef-title {
+    .chef-title {
             display: flex;
             justify-content: center;
             margin-bottom: 20px;
             margin-top: 10x;
         }
 
-        .chef-title h2 {
+    .chef-title h2 {
             font-size: var(--font-size-h2); 
             color: #455141;
             margin: 0;
@@ -20,7 +21,7 @@
         }
 
         /* O CONTENTOR FLEX */
-        .chef-container {
+    .chef-container {
             display: flex;
             gap: 60px;
             align-items: center; 
@@ -29,13 +30,13 @@
             margin: 0 auto;
         }
 
-        .chef-image {
+    .chef-image {
             /* FLEX 0.8 faz com que ela ocupe menos espaço que o texto (que é 1.2) */
             flex: 0.8; 
             min-width: 250px;
         }
 
-        .chef-image img {
+    .chef-image img {
             width: 100%;
             height: auto;
             border-radius: 8px;
@@ -44,13 +45,13 @@
         }
 
         /* CAIXA DO TEXTO (Aumentada) */
-        .chef-text {
+    .chef-text {
             /* FLEX 1.2 faz com que ele ganhe a prioridade de espaço */
             flex: 1.2;
             text-align: justify; /* Mantém justificado como pediste */
         }
 
-        .chef-text p {
+    .chef-text p {
             margin-bottom: 20px;
             font-size: var(--font-size-p);
             line-height: var(--line-height-p);
