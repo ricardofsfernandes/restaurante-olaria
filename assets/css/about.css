@@ -51,7 +51,6 @@
             margin: 0 auto;
         }
 
-        /* CAIXA DA IMAGEM (Reduzida) */
         .about-image {
             /* FLEX 0.8 faz com que ela ocupe menos espaço que o texto (que é 1.2) */
             flex: 0.8; 
