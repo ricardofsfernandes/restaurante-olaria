@@ -240,7 +240,7 @@
     }
 
     .chef-text p {
-        font-size: 1.4rem; /* Redução do tamanho da fonte para leitura confortável no telemóvel */
+        font-size: 1.6rem; /* Redução do tamanho da fonte para leitura confortável no telemóvel */
         line-height: 1.7;
     }
 
@@ -252,10 +252,10 @@
     }
 
     .member-info h3 {
-        font-size: 1rem; /* Títulos dos membros mais pequenos */
+        font-size: 1.5rem; /* Títulos dos membros mais pequenos */
     }
     
     .member-info p {
-        font-size: 0.8rem; /* Cargos mais pequenos */
+        font-size: 1.0rem; /* Cargos mais pequenos */
     }
 }
