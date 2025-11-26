@@ -26,12 +26,12 @@
     display: flex;
     align-items: center; 
     gap: 1rem;           
-    margin-bottom: 20px; 
+    margin-bottom: 30px; 
 }
 
 /* 2. Controla o comportamento da imagem lá dentro */
 .chef-portrait img {
-    max-width: 200px;        
+    max-width: 400px;        
     height: auto;
     object-fit: cover;  
     display: block;     
@@ -69,7 +69,7 @@
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(1, 1fr);
-    gap: 10px;
+    gap: 20px;
 }
 
 .member-photo img {
@@ -83,10 +83,12 @@
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: transform 0.3s ease; /* Animação suave ao passar o rato */
+    border-radius: 8px;
+    overflow: hidden; /* Garante que o conteúdo não ultrapassa os cantos arredondados */
 }
 
 .member-card:hover {
-    transform: translateY(5px); /* Sobe ligeiramente quando passas o rato */
+    transform: translateY(-5px); /* Sobe ligeiramente quando passas o rato */
 }
 
 /* A caixa preta com o texto (como no teu diagrama) */
