@@ -5,61 +5,6 @@
             padding: 50px 30px;
             width: 100%;
         }
+    
 
-    .title {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-            margin-top: 10x;
-        }
-
-    .title h2 {
-            font-size: 2.4rem; 
-            color: #455141;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: font-size 0.3s ease;
-        }
-
-        /* O CONTENTOR FLEX */
-    .chef-container {
-            display: flex;
-            gap: 60px;
-            align-items: center; 
-            justify-content: center;
-            max-width: var(--container-max-width); 
-            margin: 0 auto;
-        }
-
-    .chef-image {
-            /* FLEX 0.8 faz com que ela ocupe menos espaço que o texto (que é 1.2) */
-            flex: 0.8; 
-            min-width: 250px;
-            
-        }
-
-    .chef-image img {
-            width: 50%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            display: block;
-        }
-
-        /* CAIXA DO TEXTO (Aumentada) */
-    .chef-description {
-            /* FLEX 1.2 faz com que ele ganhe a prioridade de espaço */
-            flex: 1;
-            text-align: justify; /* Mantém justificado como pediste */
-        }
-
-    .chef-description p {
-            margin-bottom: 20px;
-            font-size: 1.6rem; /* Aumentado para melhor legibilidade */
-            line-height: var(--line-height-p);
-            color: #333;
-            
-            /* REMOVIDO O LIMITE DE LARGURA */
-            width: 100%; 
-        }
+    
