@@ -203,24 +203,59 @@
 /*Telemóvel - (@media (max-width: 768px))*/
 
 @media (max-width: 768px) {
-    /* Grelha da Equipa - Passamos de 3 para 2 colunas */
-    .team-grid {
-        /* No telemóvel, 3 colunas ficam demasiado apertadas. 2 é o ideal. */
-        grid-template-columns: repeat(2, 1fr); 
-    }
-
+    /* 1. CONTAINER GERAL */
     .chef-space-container {
-        padding: 1rem; /* Reduz o padding lateral */
+        padding: 5rem;
     }
 
-    /* Garante que o texto da biografia está alinhado à esquerda para leitura, 
-       mesmo que o container esteja centrado */
-    .chef-bio-content {
-        padding: 0 10px;
-        text-align: left; 
+    /* 2. SECÇÃO DE DESTAQUE (CHEF-HIGHLIGHT) */
+    /* Herda o 'flex-direction: column' do 950px, mas vamos refinar o alinhamento */
+    
+    .chef-portrait {
+        /* No telemóvel, a imagem pode ocupar 100% da largura, 
+           mas vamos dar margem para respirar e manter a centralização */
+        max-width: 400px; /* Mantém o limite de tamanho (opcional) */
+        width: 100%;      /* Ocupa a largura total (menos o padding do chef-space-container) */
+        margin: 0 auto;   /* Garante que o bloco é centrado */
+    }
+
+    /* 3. TÍTULOS E BIOGRAFIA */
+    
+    .titles-chef {
+        text-align: center; /* Mantém os títulos centrados para impacto */
     }
     
     .titles-chef h1 {
-        font-size: 2rem;
+        font-size: 2rem; /* Redução para caber melhor no ecrã */
+    }
+    
+    .titles-chef h2 {
+        font-size: 1.5rem; /* Subtítulos mais pequenos */
+    }
+
+    .chef-bio-content {
+        padding: 0 10px; /* Mantém um pequeno padding para afastar o texto das bordas */
+        /* O texto da biografia fica mais fácil de ler se for alinhado à esquerda */
+        text-align: left; 
+    }
+
+    .chef-text p {
+        font-size: 1.4rem; /* Redução do tamanho da fonte para leitura confortável no telemóvel */
+        line-height: 1.7;
+    }
+
+    /* 4. GRElHA DA EQUIPA */
+    .team-grid {
+        /* A tua regra está perfeita: Passamos de 3 para 2 colunas */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px; /* Reduz o gap para caber tudo melhor */
+    }
+
+    .member-info h3 {
+        font-size: 1rem; /* Títulos dos membros mais pequenos */
+    }
+    
+    .member-info p {
+        font-size: 0.8rem; /* Cargos mais pequenos */
     }
 }
