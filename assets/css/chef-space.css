@@ -1,0 +1,261 @@
+
+.chef-space-container {
+    padding: 50px 30px;
+    width: 100%;
+    /*max-width: 1200px;*/ /* Largura máxima do site */
+    margin: 0 auto;    /* Centrar na página */
+}
+
+/* =========================================
+   SECÇÃO 1: O CHEF DESTAQUE (Topo)
+   ========================================= */
+.chef-highlight {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    gap: 1rem;           
+    margin-bottom: 30px;
+}
+
+/* 2. Controla o comportamento da imagem lá dentro */
+.chef-portrait img {
+    max-width: 250px;        
+    height: auto;
+    object-fit: cover;  
+    display: block;     
+    border-radius: 8px;
+}
+
+/* Estilos da Tipografia do Chef */
+.chef-bio-content {
+    padding-right: 40px;
+}
+
+.titles-chef h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    color: #222;
+}
+
+.titles-chef h2 {
+    font-size: 1.6rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+.chef-text p {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    line-height: 1.6; /* Altura da linha para boa leitura */
+    color: #444;
+    text-align: justify;
+}
+
+/* =========================================
+   SECÇÃO 2: A EQUIPA (Grelha em baixo)
+   ========================================= */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 20px;
+}
+
+.member-photo img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+/* O Cartão Individual */
+.member-card {
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease; /* Animação suave ao passar o rato */
+    border-radius: 8px;
+    overflow: hidden; /* Garante que o conteúdo não ultrapassa os cantos arredondados */
+}
+
+.member-card:hover {
+    transform: translateY(-5px); /* Sobe ligeiramente quando passas o rato */
+}
+
+/* A caixa preta com o texto (como no teu diagrama) */
+.member-info {
+    background-color: #36402a; /* Fundo escuro */
+    color: #fff;            /* Texto branco */
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.member-info h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #d4a373; /* Uma cor "barro/ouro" para destacar o nome */
+}
+
+.member-info p {
+    margin: 0.5rem 0 0 0;
+    font-size: 1.3rem;
+    opacity: 0.8; /* Texto ligeiramente mais transparente */
+}
+
+
+/*RESPONSIVIDADE*/
+/*Ecras Grandes*/
+@media (min-width: 1401px) {
+    /* Secção de Destaque do Chef */
+    .chef-highlight {
+        gap: 5rem; /* Aumenta o espaço entre a foto e o texto */
+        padding: 50px 50px;
+    }
+    /* Títulos da Biografia */
+    .chef-bio-content h1 {
+        font-size: 5rem;
+    }
+    .chef-bio-content h2 {
+        font-size: 2.5rem;
+    }
+    .chef-bio-content p {
+        font-size: 1.8rem;
+    }
+    /* Grelha da Equipa */
+    .team-grid {
+        gap: 30px; /* Mais espaço entre os cartões */
+        padding: 30px 0;
+    }
+    .chef-portrait img {
+    max-width: 350px;        
+    height: auto;
+    object-fit: cover;  
+    display: block;     
+    border-radius: 8px;
+}
+    /* Fotos da Equipa */
+    .member-photo img {
+        /* Garante que as fotos têm um aspeto mais "pro" e quadrado */
+        aspect-ratio: 9 / 12; 
+        object-fit: cover;
+    }
+}
+
+/*Breakpoint Crítico - (@media (max-width: 950px))*/
+
+@media (max-width: 950px) {
+    /* 1. CONTAINER PAI (chef-highlight) */
+    .chef-highlight {
+        /* Garante que os filhos são empilhados */
+        flex-direction: column; 
+        gap: 2rem;
+    }
+
+    /* 2. O BLOCO DA IMAGEM (chef-portrait) - A MOLDURA */
+    .chef-portrait {
+        /* Centralização Horizontal do BLOCO */
+        max-width: 500px;
+        margin: 0 auto;   
+        width: 90%;       
+        flex: none;       
+        
+        /* NOVO: CENTRALIZAÇÃO DO CONTEÚDO DENTRO DA MOLDURA */
+        display: flex; /* Torna a moldura um container flex */
+        justify-content: center; /* Centra a imagem horizontalmente */
+        align-items: center;     /* Centra a imagem verticalmente */
+    }
+    
+    /* 3. A IMAGEM DENTRO DA MOLDURA */
+    .chef-portrait img {
+        width: 100%;
+        max-height: 500px;
+        object-fit: contain;
+    }
+    
+    /* 4. BLOCO DE TEXTO */
+    .chef-bio-content {
+        width: 100%;
+        flex: none;
+        padding: 0; /* Remove o padding direito */
+    }
+
+    /* 5. TÍTULOS E TEXTO */
+    .titles-chef {
+        text-align: center;
+    }
+    
+    .chef-text {
+        text-align: left; 
+        max-width: 600px; /* Para não ter linhas demasiado longas */
+        margin: 0 auto;   /* Centraliza o texto (opcional, mas bom para leitura) */
+    }
+    
+    /* Grelha da Equipa */
+    .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+}
+
+/*Telemóvel - (@media (max-width: 768px))*/
+
+@media (max-width: 768px) {
+    /* 1. CONTAINER GERAL */
+    .chef-space-container {
+        padding: 5rem;
+    }
+
+    /* 2. SECÇÃO DE DESTAQUE (CHEF-HIGHLIGHT) */
+    /* Herda o 'flex-direction: column' do 950px, mas vamos refinar o alinhamento */
+    
+    .chef-portrait {
+        /* No telemóvel, a imagem pode ocupar 100% da largura, 
+           mas vamos dar margem para respirar e manter a centralização */
+        max-width: 400px; /* Mantém o limite de tamanho (opcional) */
+        width: 100%;      /* Ocupa a largura total (menos o padding do chef-space-container) */
+        margin: 0 auto;   /* Garante que o bloco é centrado */
+    }
+
+    /* 3. TÍTULOS E BIOGRAFIA */
+    
+    .titles-chef {
+        text-align: center; /* Mantém os títulos centrados para impacto */
+    }
+    
+    .titles-chef h1 {
+        font-size: 2rem; /* Redução para caber melhor no ecrã */
+    }
+    
+    .titles-chef h2 {
+        font-size: 1.5rem; /* Subtítulos mais pequenos */
+    }
+
+    .chef-bio-content {
+        padding: 0 10px; /* Mantém um pequeno padding para afastar o texto das bordas */
+        /* O texto da biografia fica mais fácil de ler se for alinhado à esquerda */
+        text-align: left; 
+    }
+
+    .chef-text p {
+        font-size: 1.6rem; /* Redução do tamanho da fonte para leitura confortável no telemóvel */
+        line-height: 1.7;
+    }
+
+    /* 4. GRElHA DA EQUIPA */
+    .team-grid {
+        /* A tua regra está perfeita: Passamos de 3 para 2 colunas */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px; /* Reduz o gap para caber tudo melhor */
+    }
+
+    .member-info h3 {
+        font-size: 1.5rem; /* Títulos dos membros mais pequenos */
+    }
+    
+    .member-info p {
+        font-size: 1.0rem; /* Cargos mais pequenos */
+    }
+}

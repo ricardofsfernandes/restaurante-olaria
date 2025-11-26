@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+
 
 /*
  Definir fonte de letra e estilos básicos para o corpo da página
@@ -7,7 +9,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Cabin", sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
