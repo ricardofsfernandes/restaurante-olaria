@@ -6,5 +6,107 @@
             width: 100%;
         }
     
+/* =========================================
+   BASE & RESET
+   ========================================= */
+/* Garante que as imagens nunca ultrapassam o tamanho do contentor */
 
-    
+
+.chef-space-container {
+    padding: 50px 30px;
+    width: 100%;
+    /*max-width: 1200px;*/ /* Largura máxima do site */
+    margin: 0 auto;    /* Centrar na página */
+}
+
+/* =========================================
+   SECÇÃO 1: O CHEF DESTAQUE (Topo)
+   ========================================= */
+.chef-highlight {
+    display: flex;
+    align-items: center; 
+    gap: 1rem;           
+    margin-bottom: 20px; 
+}
+
+/* 2. Controla o comportamento da imagem lá dentro */
+.chef-portrait img {
+    max-width: 200px;        
+    height: auto;
+    object-fit: cover;  
+    display: block;     
+    border-radius: 8px;
+}
+
+/* Estilos da Tipografia do Chef */
+.titles-chef h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    color: #222;
+}
+
+.titles-chef h2 {
+    font-size: 1.6rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+.chef-text p {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    line-height: 1.6; /* Altura da linha para boa leitura */
+    color: #444;
+    text-align: justify;
+}
+
+/* =========================================
+   SECÇÃO 2: A EQUIPA (Grelha em baixo)
+   ========================================= */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 10px;
+}
+
+.member-photo img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+/* O Cartão Individual */
+.member-card {
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease; /* Animação suave ao passar o rato */
+}
+
+.member-card:hover {
+    transform: translateY(5px); /* Sobe ligeiramente quando passas o rato */
+}
+
+/* A caixa preta com o texto (como no teu diagrama) */
+.member-info {
+    background-color: #36402a; /* Fundo escuro */
+    color: #fff;            /* Texto branco */
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.member-info h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #d4a373; /* Uma cor "barro/ouro" para destacar o nome */
+}
+
+.member-info p {
+    margin: 0.5rem 0 0 0;
+    font-size: 1.3rem;
+    opacity: 0.8; /* Texto ligeiramente mais transparente */
+}
