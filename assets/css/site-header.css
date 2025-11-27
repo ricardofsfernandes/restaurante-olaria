@@ -187,6 +187,15 @@ main {
 
 /*Fim estilo dropdown menu*/
 
+
+
+/* REGRA GLOBAL: Esconde o botão hamburger por defeito */
+.menu-toggle {
+    display: none; 
+}
+
+
+
 /* 1. ECRÃS GIGANTES (+1400px) */
 @media (min-width: 1401px) {
     /* Títulos maiores */

@@ -67,23 +67,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ======================================================
     // B. TOGGLE DOS SUB-MENUS (DROPDOWNS VERTICAIS)
-    // ======================================================
     dropdowns.forEach(function(dropdown) {
         const dropdownBtn = dropdown.querySelector('.dropdown-btn');
 
         if (dropdownBtn) {
             dropdownBtn.addEventListener('click', function(e) {
-                // Previne a navegação imediata para o link '#'
+                // 1. Previne navegação: Essencial para menus que não são links reais
                 e.preventDefault(); 
-                e.stopPropagation(); // Evita que o evento suba
+                
+                // 2. Fecha outros dropdowns abertos (Limpeza visual)
+                dropdowns.forEach(function(d) {
+                    if (d !== dropdown) {
+                        d.classList.remove('open');
+                    }
+                });
 
-                // Toggle da classe 'open' apenas no <li> pai
+                // 3. Toggle da classe 'open' no <li> atual
                 dropdown.classList.toggle('open');
-
-                // NOTA: Para um UX limpo, podes querer fechar outros dropdowns abertos.
-                // Mas, por agora, vamos manter este simples.
             });
         }
     });
