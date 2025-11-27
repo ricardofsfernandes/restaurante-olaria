@@ -99,11 +99,8 @@ header {
     color: #FDCB67;
 
 }
- main {
-  padding-top: 99px; /* aqui compensa a altura do header fixo, se mudar a altura do logo, vai influenciar aqui */
-  min-height: 80vh;
-  color: white;
-}
+
+
 
 /*Estilo para dropdown menu*/
 .fa-caret-down {
@@ -389,11 +386,11 @@ header {
         background: none;
         border: none;
         cursor: pointer;
-        padding: 5px;
+        padding: 8px;
         z-index: 1032; /* Acima de tudo */
         
         /* Estilo do Icon */
-        font-size: 2rem; 
+        font-size: 2.5rem; 
         color: #36402a; /* Cor dos links */
     }
     
@@ -420,13 +417,13 @@ header {
         flex-direction: column; /* Stacks links verticalmente */
         align-items: flex-start; /* Alinha os links à esquerda (como na imagem) */
         gap: 0; /* Remove o gap horizontal */
-        padding: 0 20px;
+        padding: 0 8px;
     }
 
     .menu ul li a {
         font-size: 1.5rem; /* Um pouco mais pequenos que os do desktop */
         color: white; /* Cor branca para o overlay escuro */
-        padding: 15px 20px; /* Aumenta a área de toque */
+        padding: 8px 10px; /* Aumenta a área de toque */
         width: 100%;
         border-bottom: none;
         text-align: left;
@@ -462,7 +459,7 @@ header {
         background: none;
         box-shadow: none;
         border: none;
-        padding: 0;
+        padding: 10px;
     }
     
     /* Estilo dos sub-links do dropdown */
