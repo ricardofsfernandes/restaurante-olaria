@@ -288,10 +288,10 @@ main {
 
     .navbar {
         /* Desfaz o 'flex-direction: column' que estava no 1000px/700px */
-        flex-direction: row; 
+        flex-direction: row !important;
         justify-content: space-between; /* Logo à esquerda, Hamburger à direita */
         padding: 10px 15px;
-        height: auto;
+        
     }
     
     /* 2. O BOTÃO HAMBURGER */
