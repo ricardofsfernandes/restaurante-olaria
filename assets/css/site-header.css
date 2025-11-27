@@ -99,6 +99,11 @@ header {
     color: #FDCB67;
 
 }
+ main {
+  padding-top: 99px; /* aqui compensa a altura do header fixo, se mudar a altura do logo, vai influenciar aqui */
+  min-height: 80vh;
+  color: white;
+}
 
 /*Estilo para dropdown menu*/
 .fa-caret-down {
@@ -226,45 +231,131 @@ header {
    4. MOBILE - MENU VERTICAL (Abaixo de 700px)
    ========================================= */
 @media (max-width: 700px) {
+   /* 1. LAYOUT DO HEADER FIXO */
     
-    /* 1. Coloca a Navbar em coluna (Logo em cima, Menu em baixo) */
-    .navbar {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
+    .location {
+        /* Esconder o contacto/localização no topo, pois ocupa demasiado espaço */
+        display: none; 
     }
 
-    /* 2. Coloca os Links (ul) em coluna vertical */
+    .navbar {
+        /* Desfaz o 'flex-direction: column' que estava no 1000px/700px */
+        flex-direction: row !important;
+        justify-content: space-between; /* Logo à esquerda, Hamburger à direita */
+        padding: 10px 15px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1030;
+        background-color: rgba(255, 255, 255, 0.98);
+    }
+    
+    /* 2. O BOTÃO HAMBURGER */
+    
+    .menu-toggle {
+        display: block; /* MOSTRA o botão hamburger (que estava escondido por defeito) */
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 1032; /* Acima de tudo */
+        
+        /* Estilo do Icon */
+        font-size: 2rem; 
+        color: #36402a; /* Cor dos links */
+    }
+    
+    /* 3. O MENU PRINCIPAL */
+    
+    .menu {
+        display: none; /* ESCONDE o menu principal por defeito */
+        
+        /* Regras de SOBREPOSIÇÃO (Overlay) quando aberto */
+        position: fixed;
+        top: 74px; /* Coloca logo abaixo do header fixo */
+        left: 0;
+        width: 100%;
+        height: 100vh; /* Ocupa a altura total do ecrã */
+        z-index: 1029;
+        overflow-y: auto; /* Permite scroll se o menu for longo */
+        /*padding-top: 20px;*/
+    }
+    
+    /* 4. OS LINKS NO MENU ABERTO */
+    
     .menu ul {
-        flex-direction: column; /* A magia acontece aqui */
-        align-items: center;    /* Centra os links */
-        gap: 15px;              /* Espaço entre cada link */
+        background-color: #36402a;
+        flex-direction: column; /* Stacks links verticalmente */
+        align-items: flex-start; /* Alinha os links à esquerda (como na imagem) */
+        gap: 0; /* Remove o gap horizontal */
+        padding: 0 20px;
+    }
+
+    .menu ul li a {
+        font-size: 1.5rem; /* Um pouco mais pequenos que os do desktop */
+        color: white; /* Cor branca para o overlay escuro */
+        padding: 15px 20px; /* Aumenta a área de toque */
+        width: 100%;
+        border-bottom: none;
+        text-align: left;
+    }
+
+    .menu ul li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex; /* Garante que o item e a border ocupam 100% */
+        flex-direction: column; /* Necessário para o sub-menu vertical */
+        width: 100%; /* Essencial para a border ser de ponta a ponta */
+    
+        /* Remove a border do último item, por estética */
+        &:last-child { 
+             border-bottom: none;
+        }
+        
+    }
+
+    /* 5. DROP DOWNS (Stacking Vertical) */
+    
+    /* Garante que o dropdown principal não tem display: flex */
+    .dropdown {
+        width: 100%;
+        position: static; /* IMPEDE que o <li> pai tenha posicionamento relativo, o que interfere com o sub-menu */
+    }
+
+    .dropdown-content {
+        /* Remove o layout horizontal de desktop/tablet */
+        display: none !important; /* ESCONDE por defeito */
+        position: static; /* Tira do fluxo absoluto (o truque para ficar vertical) */
+        width: 100%;
+        min-width: unset;
+        background: none;
+        box-shadow: none;
+        border: none;
+        padding: 0;
+    }
+    
+    /* Estilo dos sub-links do dropdown */
+    .dropdown-content a {
+        padding: 10px 25px; /* Indentação para mostrar que é sub-menu */
+        color: #ddd;
+        font-size: 1.4rem;
+        border-bottom: none;
+        background: none;
         width: 100%;
     }
 
-    /* 3. Aumenta a área de clique para o dedo (Melhor UX) */
-    .menu a {
-        display: block;
-        padding: 5px 20px; /* Torna mais fácil acertar com o dedo */
-        font-size: 18px;   /* Letra um pouco maior para mobile */
+    /* REGRA JS: Mostra o Menu quando o JS adicionar a classe .open */
+    .navbar.open .menu {
+        display: block; /* Garante que o menu principal é visível */
     }
 
-    /* ---------------------------------------------------------
-       ⚠️ AJUSTE CRÍTICO DO HEADER FIXO EM MOBILE 
-       Como o menu vertical fica muito alto (ocupa metade do ecrã),
-       é perigoso mantê-lo "fixed" (preso no topo), pois vai tapar o site.
-       
-       Sugestão Pro: Em mobile, soltamos o header para ele rolar com a página.
-    --------------------------------------------------------- */
-    header {
-        position: relative; /* Deixa de ser fixo */
-        border-bottom: none; /* Opcional: remove a linha */
-    }
-
-    /* Como o header já não é fixo, removemos o padding gigante do main */
-    main {
-        padding-top: 20px; /* Apenas um espaçamento pequeno */
-    }
+    /* REGRA JS: Mostra o Sub-menu Vertical */
+    .dropdown.open .dropdown-content {
+    /* No mobile, queremos que os dropdowns sejam colunas visíveis */
+    display: flex !important;
+    flex-direction: column;
+    background: none !important;
+}
 }
 
 /* =========================================
