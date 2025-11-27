@@ -20,194 +20,11 @@ body {
     background-position: center;
 }
 
-header {
-    display: flex;
-    flex-direction: column; /* header pai de location + navbar */
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.95); /* Só o fundo fica transparente, o texto não */
-    position: fixed;
-    top: 0; /* fixa em cima */
-    left: 0;
-    width: 100%;
-    z-index: 1030;
-    opacity: 0.95;
-    border-bottom: 1px solid #ddd;
-    transition: all 0.3s ease; /* Suaviza mudanças de altura */
-}
-
-.location {
-  display: flex;                     
-  align-items: center;               /* vertical */
-  justify-content: center;           /* horizontalmente */
-  gap: 6px;                          /* icon e texto */
-  width: 100%;
-  border-bottom: 1px solid #dddddda2;
-  padding: 5px 0;
-  font-size: 12px;
-  color: #666;
-}
-
-/* link */
-.location a {
-  text-decoration: none;
-  color: #000000;
-  font-weight: bold;
-  font-size: 12px;
-  display: flex;                     
-  align-items: center;               
-  gap: 4px;                     
-}
-
-/* ícone */
-.location img {
-  width: 15px;
-  height: 15px;
-  display: block; /* evita desalinhar na própria inline */
-}
-
-
-.navbar {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    align-items: center;
-    padding: 10px 15px;
-}
-
-
-.logo img {
-    width: 200px; /* tamanho do logo, mexe na altura do header tbm */
-    height: auto; /*auto em relação width*/
-    display: block;
-    object-fit: contain;/* evita distorce do logotipo */
-    object-position: center;
-    /* VALOR APROXIMADO para a cor #36402a */
-    filter: 
-        invert(25%) 
-        sepia(20%) 
-        saturate(1000%) 
-        hue-rotate(60deg) 
-        brightness(45%) 
-        contrast(100%);
-}
-.menu ul {
-    display: flex;
-    gap: 20px;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-/* 1. CORREÇÃO DE ALINHAMENTO: Aplica o padding vertical aqui para altura consistente */
-.menu ul li {
-    display: flex; 
-    align-items: center;
-    padding: 10px 0; /* Define a altura/espaçamento vertical igual para todos os itens <li> */
-}
-
-.menu a {
-    text-decoration: none;
-    color: #36402a;
-    font-weight: 500;
-    font-size: 1.6rem;
-    padding: 0 5px; /* Adicionado padding para melhor área de clique e alinhamento */
-    display: block; /* Garante que os links ocupem a largura total no dropdown */
-    white-space: nowrap; /* Evita quebra de linha nos nomes dos itens */
-    
-}
-
-.menu a:hover {
-    color: #FDCB67;
-
-}
-
 main {
-  padding-top: 100px; /* aqui compensa a altura do header fixo, se mudar a altura do logo, vai influenciar aqui */
+  padding-top: 99px; /* aqui compensa a altura do header fixo, se mudar a altura do logo, vai influenciar aqui */
   min-height: 80vh;
   color: white;
 }
-
-
-
-/*Estilo para dropdown menu*/
-.fa-caret-down {
-    color: #FDCB67; /* Cor do acento (amarelo/laranja) */
-    font-size: 3rem; /* Tamanho do acento */
-    line-height: 1; /* Ajuda no alinhamento vertical */
-    display: inline-block;
-}
-/* --- Estilos Específicos do Dropdown --- */
-
-.dropdown {
-    flex-shrink: 0; /* Evita que o dropdown encolha */
-    
-    position: relative; 
-    display: inline-block; 
-}
-
-/* O botão/link principal do dropdown */
-.dropdown-btn {
-    display: flex; 
-    align-items: center;
-    gap: 5px;
-    padding: 0 5px; /* Mesmo padding horizontal que .menu a */
-}
-
-.dropdown-content {
-    /* CORRIGIDO: Oculta o conteúdo por defeito */
-    display: none; 
-    
-    position: absolute;
-    min-width: fit-content; /* Alterei para 'fit-content' para ajustar ao conteúdo na horizontal */
-
-    z-index: 1031; 
-    /*border-top: 2px solid #FDCB67;*/
-    padding: 5px;
-    border-radius: 0 0 10px 10px;
-    left: 0%; 
-    transform: none;
-    top: 128%;
-    /* Alinhamento dos itens na horizontal */
-    flex-wrap: nowrap; 
-    gap: 5px;
-
-    /* NOVO: Adiciona um fundo sólido para não sobrepor mal */
-    background-color: rgba(255, 255, 255, 0.98); 
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    border-top: 2px solid #FDCB67; /* Destaque opcional */
-
-}
-
-.dropdown-content a {
-    color: #161031; 
-    padding: 8px 12px;
-    text-decoration: none;
-    /* Essencial para manter tudo na mesma linha */
-    white-space: nowrap; 
-    text-align: center;
-    font-size: 1.6rem; 
-    font-weight: 200;
-
-    background-color: transparent; /* IMPORTANTE */
-}
-
-.dropdown-content a:hover {
-    /*background-color: #F0F0F0;*/
-    color: #000000;
-}
-
-/* Regra que mostra o menu: SÓ ativado no hover */
-/*.dropdown:hover .dropdown-content {
-    display: flex; 
-}*/
-
-.dropdown.open .dropdown-content {
-    display: flex; /* Mostra o dropdown quando o JS adicionar a classe .open */
-}
-
-
-/*Fim estilo dropdown menu*/
 
 /* Secção da imagem (hero) */
 .hero {
@@ -342,7 +159,7 @@ img:hover {
 
     /* Compensa a altura extra do header fixo */
     main {
-        padding-top: 200px; 
+        padding-top: 165px; 
     }
 }
 
@@ -378,43 +195,8 @@ img:hover {
    4. MOBILE - MENU VERTICAL (Abaixo de 700px)
    ========================================= */
 @media (max-width: 700px) {
-    
-    /* 1. Coloca a Navbar em coluna (Logo em cima, Menu em baixo) */
-    .navbar {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
-    }
-
-    /* 2. Coloca os Links (ul) em coluna vertical */
-    .menu ul {
-        flex-direction: column; /* A magia acontece aqui */
-        align-items: center;    /* Centra os links */
-        gap: 15px;              /* Espaço entre cada link */
-        width: 100%;
-    }
-
-    /* 3. Aumenta a área de clique para o dedo (Melhor UX) */
-    .menu a {
-        display: block;
-        padding: 5px 20px; /* Torna mais fácil acertar com o dedo */
-        font-size: 18px;   /* Letra um pouco maior para mobile */
-    }
-
-    /* ---------------------------------------------------------
-       ⚠️ AJUSTE CRÍTICO DO HEADER FIXO EM MOBILE 
-       Como o menu vertical fica muito alto (ocupa metade do ecrã),
-       é perigoso mantê-lo "fixed" (preso no topo), pois vai tapar o site.
-       
-       Sugestão Pro: Em mobile, soltamos o header para ele rolar com a página.
-    --------------------------------------------------------- */
-    header {
-        position: relative; /* Deixa de ser fixo */
-        border-bottom: none; /* Opcional: remove a linha */
-    }
-
     /* Como o header já não é fixo, removemos o padding gigante do main */
     main {
-        padding-top: 20px; /* Apenas um espaçamento pequeno */
+        padding-top: 0; /* Apenas um espaçamento pequeno */
     }
 }

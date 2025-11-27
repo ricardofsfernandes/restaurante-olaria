@@ -1,0 +1,487 @@
+header {
+    display: flex;
+    flex-direction: column; /* header pai de location + navbar */
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.95); /* Só o fundo fica transparente, o texto não */
+    position: fixed;
+    top: 0; /* fixa em cima */
+    left: 0;
+    width: 100%;
+    z-index: 1030;
+    opacity: 0.95;
+    border-bottom: 1px solid #ddd;
+    transition: all 0.3s ease; /* Suaviza mudanças de altura */
+}
+
+.location {
+  display: flex;                     
+  align-items: center;               /* vertical */
+  justify-content: center;           /* horizontalmente */
+  gap: 6px;                          /* icon e texto */
+  width: 100%;
+  border-bottom: 1px solid #dddddda2;
+  padding: 5px 0;
+  font-size: 12px;
+  color: #666;
+}
+
+/* link */
+.location a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  font-size: 12px;
+  display: flex;                     
+  align-items: center;               
+  gap: 4px;                     
+}
+
+/* ícone */
+.location img {
+  width: 15px;
+  height: 15px;
+  display: block; /* evita desalinhar na própria inline */
+}
+
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+
+.logo img {
+    width: 200px; /* tamanho do logo, mexe na altura do header tbm */
+    height: auto; /*auto em relação width*/
+    display: block;
+    object-fit: contain;/* evita distorce do logotipo */
+    object-position: center;
+    /* VALOR APROXIMADO para a cor #36402a */
+    filter: 
+        invert(25%) 
+        sepia(20%) 
+        saturate(1000%) 
+        hue-rotate(60deg) 
+        brightness(45%) 
+        contrast(100%);
+}
+.menu ul {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* 1. CORREÇÃO DE ALINHAMENTO: Aplica o padding vertical aqui para altura consistente */
+.menu ul li {
+    display: flex; 
+    align-items: center;
+    padding: 10px 0; /* Define a altura/espaçamento vertical igual para todos os itens <li> */
+}
+
+.menu a {
+    text-decoration: none;
+    color: #36402a;
+    font-weight: 500;
+    font-size: 1.6rem;
+    padding: 0 5px; /* Adicionado padding para melhor área de clique e alinhamento */
+    display: block; /* Garante que os links ocupem a largura total no dropdown */
+    white-space: nowrap; /* Evita quebra de linha nos nomes dos itens */
+    
+}
+
+.menu a:hover {
+    color: #FDCB67;
+
+}
+
+
+
+/*Estilo para dropdown menu*/
+.fa-caret-down {
+    color: #FDCB67; /* Cor do acento (amarelo/laranja) */
+    font-size: 3rem; /* Tamanho do acento */
+    line-height: 1; /* Ajuda no alinhamento vertical */
+    display: inline-block;
+}
+/* --- Estilos Específicos do Dropdown --- */
+
+.dropdown {
+    flex-shrink: 0; /* Evita que o dropdown encolha */
+    
+    position: relative; 
+    display: inline-block; 
+}
+
+/* O botão/link principal do dropdown */
+.dropdown-btn {
+    display: flex; 
+    align-items: center;
+    gap: 5px;
+    padding: 0 5px; /* Mesmo padding horizontal que .menu a */
+}
+
+.dropdown-content {
+    /* CORRIGIDO: Oculta o conteúdo por defeito */
+    display: none; 
+    
+    position: absolute;
+    min-width: fit-content; /* Alterei para 'fit-content' para ajustar ao conteúdo na horizontal */
+
+    z-index: 1031; 
+    /*border-top: 2px solid #FDCB67;*/
+    padding: 5px;
+    border-radius: 0 0 10px 10px;
+    left: 0%; 
+    transform: none;
+    top: 128%;
+    /* Alinhamento dos itens na horizontal */
+    flex-wrap: nowrap; 
+    gap: 5px;
+
+    /* NOVO: Adiciona um fundo sólido para não sobrepor mal */
+    background-color: rgba(255, 255, 255, 0.98); 
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-top: 2px solid #FDCB67; /* Destaque opcional */
+
+}
+
+.dropdown-content a {
+    color: #161031; 
+    padding: 8px 12px;
+    text-decoration: none;
+    /* Essencial para manter tudo na mesma linha */
+    white-space: nowrap; 
+    text-align: center;
+    font-size: 1.6rem; 
+    font-weight: 200;
+
+    background-color: transparent; /* IMPORTANTE */
+}
+
+.dropdown-content a:hover {
+    /*background-color: #F0F0F0;*/
+    color: #000000;
+}
+
+/* Regra que mostra o menu: SÓ ativado no hover */
+/*.dropdown:hover .dropdown-content {
+    display: flex; 
+}*/
+
+.dropdown.open .dropdown-content {
+    display: flex; /* Mostra o dropdown quando o JS adicionar a classe .open */
+}
+
+
+/*Fim estilo dropdown menu*/
+
+
+
+/* REGRA GLOBAL: Esconde o botão hamburger por defeito */
+.menu-toggle {
+    display: none; 
+}
+
+
+
+/* 1. ECRÃS GIGANTES (+1400px) */
+@media (min-width: 1401px) {
+    /* Títulos maiores */
+    .bloco h2 {
+        font-size: 3.1rem;
+        margin-bottom: 25px;
+    }
+    /* Texto maior */
+    .bloco p {
+        font-size: 1.8rem;
+        line-height: 1.8;    
+        max-width: 100ch;
+    }
+}
+
+/* 2. TABLETS E LAPTOPS PEQUENOS (-1000px) */
+@media (max-width: 1000px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding-bottom: 15px;
+    }
+
+    .menu ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Compensa a altura extra do header fixo */
+    main {
+        padding-top: 200px; 
+    }
+}
+
+/* =========================================
+   4. MOBILE - MENU VERTICAL (Abaixo de 700px)
+   ========================================= */
+@media (max-width: 700px) {
+   /* 1. LAYOUT DO HEADER FIXO */
+    
+    .location {
+        /* Esconder o contacto/localização no topo, pois ocupa demasiado espaço */
+        display: none; 
+    }
+
+    .navbar {
+        /* Desfaz o 'flex-direction: column' que estava no 1000px/700px */
+        flex-direction: row !important;
+        justify-content: space-between; /* Logo à esquerda, Hamburger à direita */
+        padding: 10px 15px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1030;
+        background-color: rgba(255, 255, 255, 0.98);
+    }
+    
+    /* 2. O BOTÃO HAMBURGER */
+    
+    .menu-toggle {
+        display: block; /* MOSTRA o botão hamburger (que estava escondido por defeito) */
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 1032; /* Acima de tudo */
+        
+        /* Estilo do Icon */
+        font-size: 2rem; 
+        color: #36402a; /* Cor dos links */
+    }
+    
+    /* 3. O MENU PRINCIPAL */
+    
+    .menu {
+        display: none; /* ESCONDE o menu principal por defeito */
+        
+        /* Regras de SOBREPOSIÇÃO (Overlay) quando aberto */
+        position: fixed;
+        top: 74px; /* Coloca logo abaixo do header fixo */
+        left: 0;
+        width: 100%;
+        height: 100vh; /* Ocupa a altura total do ecrã */
+        z-index: 1029;
+        overflow-y: auto; /* Permite scroll se o menu for longo */
+        /*padding-top: 20px;*/
+    }
+    
+    /* 4. OS LINKS NO MENU ABERTO */
+    
+    .menu ul {
+        background-color: #36402a;
+        flex-direction: column; /* Stacks links verticalmente */
+        align-items: flex-start; /* Alinha os links à esquerda (como na imagem) */
+        gap: 0; /* Remove o gap horizontal */
+        padding: 0 20px;
+    }
+
+    .menu ul li a {
+        font-size: 1.5rem; /* Um pouco mais pequenos que os do desktop */
+        color: white; /* Cor branca para o overlay escuro */
+        padding: 15px 20px; /* Aumenta a área de toque */
+        width: 100%;
+        border-bottom: none;
+        text-align: left;
+    }
+
+    .menu ul li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex; /* Garante que o item e a border ocupam 100% */
+        flex-direction: column; /* Necessário para o sub-menu vertical */
+        width: 100%; /* Essencial para a border ser de ponta a ponta */
+    
+        /* Remove a border do último item, por estética */
+        &:last-child { 
+             border-bottom: none;
+        }
+        
+    }
+
+    /* 5. DROP DOWNS (Stacking Vertical) */
+    
+    /* Garante que o dropdown principal não tem display: flex */
+    .dropdown {
+        width: 100%;
+        position: static; /* IMPEDE que o <li> pai tenha posicionamento relativo, o que interfere com o sub-menu */
+    }
+
+    .dropdown-content {
+        /* Remove o layout horizontal de desktop/tablet */
+        display: none !important; /* ESCONDE por defeito */
+        position: static; /* Tira do fluxo absoluto (o truque para ficar vertical) */
+        width: 100%;
+        min-width: unset;
+        background: none;
+        box-shadow: none;
+        border: none;
+        padding: 0;
+    }
+    
+    /* Estilo dos sub-links do dropdown */
+    .dropdown-content a {
+        padding: 10px 25px; /* Indentação para mostrar que é sub-menu */
+        color: #ddd;
+        font-size: 1.4rem;
+        border-bottom: none;
+        background: none;
+        width: 100%;
+    }
+
+    /* REGRA JS: Mostra o Menu quando o JS adicionar a classe .open */
+    .navbar.open .menu {
+        display: block; /* Garante que o menu principal é visível */
+    }
+
+    /* REGRA JS: Mostra o Sub-menu Vertical */
+    .dropdown.open .dropdown-content {
+    /* No mobile, queremos que os dropdowns sejam colunas visíveis */
+    display: flex !important;
+    flex-direction: column;
+    background: none !important;
+}
+}
+
+/* =========================================
+   MOBILE / HAMBURGER MENU (max-width: 480px)
+   ========================================= */
+@media (max-width: 480px) {
+    /* 1. LAYOUT DO HEADER FIXO */
+    
+    .location {
+        /* Esconder o contacto/localização no topo, pois ocupa demasiado espaço */
+        display: none; 
+    }
+
+    .navbar {
+        /* Desfaz o 'flex-direction: column' que estava no 1000px/700px */
+        flex-direction: row !important;
+        justify-content: space-between; /* Logo à esquerda, Hamburger à direita */
+        padding: 10px 15px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1030;
+        background-color: rgba(255, 255, 255, 0.98);
+    }
+    
+    /* 2. O BOTÃO HAMBURGER */
+    
+    .menu-toggle {
+        display: block; /* MOSTRA o botão hamburger (que estava escondido por defeito) */
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        z-index: 1032; /* Acima de tudo */
+        
+        /* Estilo do Icon */
+        font-size: 2.5rem; 
+        color: #36402a; /* Cor dos links */
+    }
+    
+    /* 3. O MENU PRINCIPAL */
+    
+    .menu {
+        display: none; /* ESCONDE o menu principal por defeito */
+        
+        /* Regras de SOBREPOSIÇÃO (Overlay) quando aberto */
+        position: fixed;
+        top: 74px; /* Coloca logo abaixo do header fixo */
+        left: 0;
+        width: 100%;
+        height: 100vh; /* Ocupa a altura total do ecrã */
+        z-index: 1029;
+        overflow-y: auto; /* Permite scroll se o menu for longo */
+        /*padding-top: 20px;*/
+    }
+    
+    /* 4. OS LINKS NO MENU ABERTO */
+    
+    .menu ul {
+        background-color: #36402a;
+        flex-direction: column; /* Stacks links verticalmente */
+        align-items: flex-start; /* Alinha os links à esquerda (como na imagem) */
+        gap: 0; /* Remove o gap horizontal */
+        padding: 0 8px;
+    }
+
+    .menu ul li a {
+        font-size: 1.5rem; /* Um pouco mais pequenos que os do desktop */
+        color: white; /* Cor branca para o overlay escuro */
+        padding: 8px 10px; /* Aumenta a área de toque */
+        width: 100%;
+        border-bottom: none;
+        text-align: left;
+    }
+
+    .menu ul li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex; /* Garante que o item e a border ocupam 100% */
+        flex-direction: column; /* Necessário para o sub-menu vertical */
+        width: 100%; /* Essencial para a border ser de ponta a ponta */
+    
+        /* Remove a border do último item, por estética */
+        &:last-child { 
+             border-bottom: none;
+        }
+        
+    }
+
+    /* 5. DROP DOWNS (Stacking Vertical) */
+    
+    /* Garante que o dropdown principal não tem display: flex */
+    .dropdown {
+        width: 100%;
+        position: static; /* IMPEDE que o <li> pai tenha posicionamento relativo, o que interfere com o sub-menu */
+    }
+
+    .dropdown-content {
+        /* Remove o layout horizontal de desktop/tablet */
+        display: none !important; /* ESCONDE por defeito */
+        position: static; /* Tira do fluxo absoluto (o truque para ficar vertical) */
+        width: 100%;
+        min-width: unset;
+        background: none;
+        box-shadow: none;
+        border: none;
+        padding: 10px;
+    }
+    
+    /* Estilo dos sub-links do dropdown */
+    .dropdown-content a {
+        padding: 10px 25px; /* Indentação para mostrar que é sub-menu */
+        color: #ddd;
+        font-size: 1.4rem;
+        border-bottom: none;
+        background: none;
+        width: 100%;
+    }
+
+    /* REGRA JS: Mostra o Menu quando o JS adicionar a classe .open */
+    .navbar.open .menu {
+        display: block; /* Garante que o menu principal é visível */
+    }
+
+    /* REGRA JS: Mostra o Sub-menu Vertical */
+    .dropdown.open .dropdown-content {
+    /* No mobile, queremos que os dropdowns sejam colunas visíveis */
+    display: flex !important;
+    flex-direction: column;
+    background: none !important;
+}
+}
