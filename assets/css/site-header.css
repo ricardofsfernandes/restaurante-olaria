@@ -352,7 +352,7 @@ main {
 
     .dropdown-content {
         /* Remove o layout horizontal de desktop/tablet */
-        display: none; /* ESCONDE por defeito */
+        display: none !important; /* ESCONDE por defeito */
         position: static; /* Tira do fluxo absoluto (o truque para ficar vertical) */
         width: 100%;
         min-width: unset;
@@ -380,7 +380,8 @@ main {
     /* REGRA JS: Mostra o Sub-menu Vertical */
     .dropdown.open .dropdown-content {
     /* No mobile, queremos que os dropdowns sejam colunas visíveis */
-    display: flex; /* ou 'block' */
+    display: flex !important;
     flex-direction: column;
+    background: none !important;
 }
 }

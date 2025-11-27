@@ -1,104 +1,67 @@
-console.log("Versão: 2025-11-18-0900");
-
-// Espera que todo o documento esteja pronto
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            // Procura todos os botões de dropdown
-            document.querySelectorAll('.dropdown-btn').forEach(button => {
-                button.addEventListener('click', function(event) {
-                    
-                    // Impede que o link navegue (porque é um href="#")
-                    event.preventDefault(); 
-                    
-                    const dropdown = this.closest('.dropdown'); // O <li> pai
-                    const isOpen = dropdown.classList.contains('open');
-
-                    // 1. Fechar todos os outros dropdowns
-                    document.querySelectorAll('.dropdown.open').forEach(openDropdown => {
-                        if (openDropdown !== dropdown) {
-                            openDropdown.classList.remove('open');
-                        }
-                    });
-
-                    // 2. Abrir ou Fechar o dropdown atual
-                    if (!isOpen) {
-                        dropdown.classList.add('open');
-                    } else {
-                        dropdown.classList.remove('open');
-                    }
-                });
-            });
-
-            // Opcional: Fechar o menu se clicar fora dele
-            document.addEventListener('click', function(event) {
-                // Verifica se o clique NÃO foi dentro de um dropdown
-                if (!event.target.closest('.dropdown')) {
-                    // Fecha todos os dropdowns que estiverem abertos
-                    document.querySelectorAll('.dropdown.open').forEach(openDropdown => {
-                        openDropdown.classList.remove('open');
-                    });
-                }
-            });
-        });
-
-
-/* toggle menu - responsive mobile */
+console.log("Versão: 2025-11-27-0100");
 
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. Elementos principais
+    
+    // Elementos principais
     const menuToggle = document.querySelector('.menu-toggle');
     const navbar = document.querySelector('.navbar');
-    const menuContainer = document.querySelector('.menu'); // Onde está o ul
-    
-    // 2. Elementos Dropdown
+    const menuContainer = document.querySelector('.menu'); 
     const dropdowns = document.querySelectorAll('.dropdown');
 
     // ======================================================
     // A. TOGGLE DO MENU PRINCIPAL (HAMBURGER)
     // ======================================================
-    if (menuToggle && menuContainer) {
+    if (menuToggle && navbar) {
         menuToggle.addEventListener('click', function() {
-            // Usa a classe 'open' na navbar para manipular tanto o hamburger
-            // quanto o menu container (como visto no CSS)
+            // Alterna a classe 'open' na navbar para mostrar/esconder o menu principal
             navbar.classList.toggle('open');
-            
-            // Alterna a visibilidade do menu (para browsers antigos, embora o CSS trate disso)
             menuContainer.classList.toggle('open'); 
+            
+            // Fecha todos os sub-menus ao fechar o menu principal (boa prática)
+            if (!navbar.classList.contains('open')) {
+                dropdowns.forEach(d => d.classList.remove('open'));
+            }
         });
     }
 
-    // B. TOGGLE DOS SUB-MENUS (DROPDOWNS VERTICAIS)
+    // ======================================================
+    // B. TOGGLE DOS SUB-MENUS (Vertical)
+    // ======================================================
     dropdowns.forEach(function(dropdown) {
         const dropdownBtn = dropdown.querySelector('.dropdown-btn');
 
         if (dropdownBtn) {
             dropdownBtn.addEventListener('click', function(e) {
-                // 1. Previne navegação: Essencial para menus que não são links reais
+                // Previne a navegação imediata (link é #)
                 e.preventDefault(); 
                 
-                // 2. Fecha outros dropdowns abertos (Limpeza visual)
+                // 1. Fecha outros dropdowns abertos, exceto o atual
                 dropdowns.forEach(function(d) {
                     if (d !== dropdown) {
                         d.classList.remove('open');
                     }
                 });
 
-                // 3. Toggle da classe 'open' no <li> atual
+                // 2. Toggle da classe 'open' no <li> atual
                 dropdown.classList.toggle('open');
             });
         }
     });
 
     // ======================================================
-    // C. DESATIVAR O HOVER NO MOBILE (Pode ser feito no CSS, mas o JS é mais seguro)
-    // Se o ecrã for pequeno, remove o hover do desktop se existir
-    // Vamos usar a media query que definiste para isso (768px)
+    // C. FECHAR AO CLICAR FORA (Global Cleanup)
     // ======================================================
-    if (window.innerWidth <= 768) {
-        // Encontra todos os links que abrem dropdowns e remove a regra de :hover
-        dropdowns.forEach(dropdown => {
-            // Remove a classe se o menu for aberto por hover CSS
-            dropdown.classList.remove('dropdown:hover'); 
-        });
-    }
+    document.addEventListener('click', function(event) {
+        // Se o menu principal estiver aberto, não fazemos nada aqui para evitar conflitos
+        if (navbar.classList.contains('open')) {
+            return; 
+        }
+        
+        // Se o clique NÃO foi dentro de um dropdown, fecha-os
+        if (!event.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown.open').forEach(openDropdown => {
+                openDropdown.classList.remove('open');
+            });
+        }
+    });
 });
