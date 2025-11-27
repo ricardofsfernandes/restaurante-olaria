@@ -100,14 +100,6 @@ header {
 
 }
 
-main {
-  padding-top: 100px; /* aqui compensa a altura do header fixo, se mudar a altura do logo, vai influenciar aqui */
-  min-height: 80vh;
-  color: white;
-}
-
-
-
 /*Estilo para dropdown menu*/
 .fa-caret-down {
     color: #FDCB67; /* Cor do acento (amarelo/laranja) */
@@ -346,6 +338,7 @@ main {
         padding: 15px 20px; /* Aumenta a área de toque */
         width: 100%;
         border-bottom: none;
+        text-align: left;
     }
 
     .menu ul li {
@@ -353,11 +346,12 @@ main {
         display: flex; /* Garante que o item e a border ocupam 100% */
         flex-direction: column; /* Necessário para o sub-menu vertical */
         width: 100%; /* Essencial para a border ser de ponta a ponta */
-        
+    
         /* Remove a border do último item, por estética */
         &:last-child { 
              border-bottom: none;
         }
+        
     }
 
     /* 5. DROP DOWNS (Stacking Vertical) */

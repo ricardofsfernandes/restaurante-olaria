@@ -20,6 +20,12 @@ body {
     background-position: center;
 }
 
+main {
+  padding-top: 99px; /* aqui compensa a altura do header fixo, se mudar a altura do logo, vai influenciar aqui */
+  min-height: 80vh;
+  color: white;
+}
+
 /* Secção da imagem (hero) */
 .hero {
   margin-bottom: 20px;
@@ -153,7 +159,7 @@ img:hover {
 
     /* Compensa a altura extra do header fixo */
     main {
-        padding-top: 200px; 
+        padding-top: 165px; 
     }
 }
 
@@ -191,6 +197,6 @@ img:hover {
 @media (max-width: 700px) {
     /* Como o header já não é fixo, removemos o padding gigante do main */
     main {
-        padding-top: 20px; /* Apenas um espaçamento pequeno */
+        padding-top: 0; /* Apenas um espaçamento pequeno */
     }
 }
