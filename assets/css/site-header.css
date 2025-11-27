@@ -365,6 +365,13 @@ main {
 
     /* REGRA JS: Mostra o Menu quando o JS adicionar a classe .open */
     .navbar.open .menu {
-        display: block; /* Ou 'flex', dependendo do resultado */
+        display: block; /* Garante que o menu principal é visível */
     }
+
+    /* REGRA JS: Mostra o Sub-menu Vertical */
+    .dropdown.open .dropdown-content {
+    /* No mobile, queremos que os dropdowns sejam colunas visíveis */
+    display: flex; /* ou 'block' */
+    flex-direction: column;
+}
 }
